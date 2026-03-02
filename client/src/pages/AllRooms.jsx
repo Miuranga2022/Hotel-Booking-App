@@ -26,7 +26,7 @@ const AllRooms = () => {
   const [selectedFilters, setSelectedFilters] = useState({ roomType: [], priceRange: [] });
   const [mobileFilterOpen, setMobileFilterOpen] = useState(false);
 
-  const roomTypes = ["Single Bed", "Double Bed", "Luxury Room", "Family Room"];
+  const roomTypes = ["Single Bed", "Double Bed", "Luxury Room", "Family Suite"];
   const priceRanges = ["0 to 5000", "5000 to 10000", "10000 to 25000", "25000 to 6000"];
   const sortOptions = ["Price Low to High", "Price High to Low", "Newest First"];
 
