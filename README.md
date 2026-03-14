@@ -3,13 +3,14 @@
 # 🏨 Hotel Booking App
 
 A modern **full-stack hotel booking platform** where users can browse hotels, explore rooms, and make reservations.
-Hotel owners can manage rooms and bookings through a dedicated dashboard.
+Hotel owners can manage rooms, bookings, and images through a dedicated dashboard.
 
 ### 🌐 Live Demo
 
-🔗 https://hotel-booking-alpha-ten-73.vercel.app/
+https://hotel-booking-alpha-ten-73.vercel.app/
 
 ![React](https://img.shields.io/badge/Frontend-React-blue)
+![Vite](https://img.shields.io/badge/Build-Vite-purple)
 ![Node](https://img.shields.io/badge/Backend-Node.js-green)
 ![Express](https://img.shields.io/badge/API-Express-black)
 ![MongoDB](https://img.shields.io/badge/Database-MongoDB-brightgreen)
@@ -19,68 +20,86 @@ Hotel owners can manage rooms and bookings through a dedicated dashboard.
 
 ---
 
-# 🚀 Tech Stack
-
-## Frontend
-
-* ⚛️ React
-* ⚡ Vite
-* 🎨 Tailwind CSS
-* 🧭 React Router
-
-## Backend
-
-* 🟢 Node.js
-* 🚂 Express
-* 🍃 MongoDB (Mongoose)
-* ☁️ Cloudinary – Image uploads
-* ✉️ Nodemailer – Email notifications
-
----
-
 # ✨ Features
 
-## 👤 User Features
+### 👤 User Features
 
-* Browse available hotels
-* View hotel and room details
-* Book hotel rooms
+* Browse hotels and rooms
+* View detailed hotel information
+* Book rooms instantly
+* Manage bookings
 * Secure authentication
-* Manage personal bookings
 
-## 🏨 Hotel Owner Features
+### 🏨 Hotel Owner Features
 
 * Owner dashboard
 * Add and manage hotel rooms
 * Upload room images
-* Track bookings
+* Track reservations
 
-## 🔐 Security
+### 🔐 Security
 
-* Authentication system
-* Protected routes
+* Clerk authentication
+* Protected API routes
 * Environment variable configuration
 
 ---
 
-# 📸 Screenshots
+# 🚀 Tech Stack
 
-Create a `screenshots` folder and add images like this:
+## Frontend
 
-```
-screenshots/
-  home.png
-  hotel-details.png
-  booking-page.png
-  dashboard.png
-```
+* React
+* Vite
+* Tailwind CSS
+* React Router
+* Clerk Authentication
 
-Example:
+## Backend
 
-```
-![Home Page](screenshots/home.png)
-![Hotel Details](screenshots/hotel-details.png)
-```
+* Node.js
+* Express
+* MongoDB (Mongoose)
+* Cloudinary (Image storage)
+* Nodemailer (Email service)
+
+---
+
+# 📸 Application Screenshots
+
+### 🏠 Home Page
+
+<img src="screenshots/home.png" width="100%"/>
+
+---
+
+### 🏨 Hotel Details
+
+<img src="screenshots/hotel-details.png" width="100%"/>
+
+---
+
+### 📅 Booking Page
+
+<img src="screenshots/booking.png" width="100%"/>
+
+---
+
+### 📋 My Bookings
+
+<img src="screenshots/my-bookings.png" width="100%"/>
+
+---
+
+### 📊 Owner Dashboard
+
+<img src="screenshots/dashboard.png" width="100%"/>
+
+---
+
+### 🛠 Manage Rooms
+
+<img src="screenshots/manage-rooms.png" width="100%"/>
 
 ---
 
@@ -89,18 +108,16 @@ Example:
 ```
 Hotel-Booking-App
 │
-├── client/          # React Frontend
-│   ├── src/
-│   ├── components/
-│   ├── pages/
-│   └── assets/
+├── client/           # React frontend
 │
-├── server/          # Express Backend
+├── server/           # Express backend
 │   ├── controllers/
-│   ├── models/
 │   ├── routes/
+│   ├── models/
 │   ├── middleware/
 │   └── config/
+│
+├── screenshots/      # README images
 │
 └── README.md
 ```
@@ -109,7 +126,7 @@ Hotel-Booking-App
 
 # ⚙️ Getting Started
 
-## 1️⃣ Clone the Repository
+## 1️⃣ Clone Repository
 
 ```bash
 git clone https://github.com/yourusername/hotel-booking-app.git
@@ -120,33 +137,34 @@ cd Hotel-Booking-App
 
 # 🖥 Backend Setup
 
-Install dependencies:
-
-```bash
+```
 cd server
 npm install
 ```
 
-Create `.env` file inside **server/**:
+Create `.env` file inside **server/**
 
 ```
 PORT=5000
 
-MONGO_URI=your_mongodb_connection_string
+MONGODB_URI=your_mongodb_connection
 
-JWT_SECRET=your_secret_key
+CLERK_SECRET_KEY=your_clerk_secret
+CLERK_WEBHOOK_SECRET=your_webhook_secret
 
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 
-EMAIL_USER=your_email
-EMAIL_PASS=your_email_password
+SENDER_EMAIL=your_email
+
+SMTP_USER=your_smtp_user
+SMTP_PASS=your_smtp_password
 ```
 
-Start backend server:
+Run backend:
 
-```bash
+```
 npm run dev
 ```
 
@@ -154,15 +172,21 @@ npm run dev
 
 # 💻 Frontend Setup
 
-Open another terminal:
-
-```bash
+```
 cd client
 npm install
 npm run dev
 ```
 
-Frontend runs at:
+Create `.env` inside **client/**
+
+```
+VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+VITE_BACKEND_URL=http://localhost:5000
+VITE_CURRENCY=LKR
+```
+
+Frontend runs at
 
 ```
 http://localhost:5173
@@ -170,96 +194,96 @@ http://localhost:5173
 
 ---
 
-# 📜 Available Scripts
+# 📡 API Routes
 
-## Client
-
-```
-npm run dev       Start development server
-npm run build     Build for production
-npm run preview   Preview production build
-```
-
-## Server
+### User
 
 ```
-npm run dev       Start server with nodemon
-npm start         Start server
+/api/user
 ```
 
----
-
-# 📡 API Endpoints
-
-Example routes:
+### Hotels
 
 ```
-GET    /api/hotels
-GET    /api/hotels/:id
-POST   /api/bookings
-GET    /api/bookings/user
-POST   /api/auth/login
-POST   /api/auth/register
+/api/hotels
+```
+
+### Rooms
+
+```
+/api/rooms
+```
+
+### Bookings
+
+```
+/api/bookings
+```
+
+### Clerk Webhooks
+
+```
+/api/clerk
 ```
 
 ---
 
 # 🌍 Deployment
 
-Both **frontend and backend** can be deployed on **Vercel**.
+The project is deployed on **Vercel**
 
 ```
 Frontend → Vercel
-Backend  → Vercel Serverless Functions
+Backend → Vercel Serverless API
 ```
 
-Each directory includes its own `vercel.json`.
+Backend example:
+
+```
+https://hotel-booking-backend-sigma-topaz.vercel.app
+```
 
 ---
 
 # 🔮 Future Improvements
 
-Planned enhancements:
-
-* 💳 Stripe payment integration
-* ⭐ Hotel reviews and rating system
-* 🔍 Advanced search and filters
-* 📅 Booking calendar
-* 🔔 Email and push notifications
-* 🛠 Admin management panel
+* Stripe payment integration
+* Hotel reviews and ratings
+* Advanced search filters
+* Booking calendar
+* Push notifications
+* Admin management panel
 
 ---
 
 # 🤝 Contributing
 
-Contributions are welcome.
-
 1. Fork the repository
-2. Create a new branch
+2. Create a branch
 
-```bash
+```
 git checkout -b feature/new-feature
 ```
 
-3. Commit your changes
+3. Commit changes
 
-```bash
+```
 git commit -m "Add new feature"
 ```
 
-4. Push your branch
+4. Push
 
-```bash
+```
 git push origin feature/new-feature
 ```
 
-5. Open a Pull Request
+5. Open Pull Request
 
 ---
 
 # 📄 License
 
-This project is licensed under the **MIT License**.
+MIT License
 
 ---
 
