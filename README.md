@@ -1,87 +1,92 @@
-🏨 Hotel Booking App
+<div align="center">
 
-A full-stack hotel booking platform where users can browse hotels, view room details, and create bookings. Hotel owners can manage rooms and bookings through dedicated dashboard pages.
+# 🏨 Hotel Booking App
 
-🔗 Live Demo:
-https://hotel-booking-alpha-ten-73.vercel.app/
+A modern **full-stack hotel booking platform** where users can browse hotels, explore rooms, and make reservations.
+Hotel owners can manage rooms and bookings through a dedicated dashboard.
 
-🚀 Tech Stack
-Frontend
+### 🌐 Live Demo
 
-⚛️ React
+🔗 https://hotel-booking-alpha-ten-73.vercel.app/
 
-⚡ Vite
+![React](https://img.shields.io/badge/Frontend-React-blue)
+![Node](https://img.shields.io/badge/Backend-Node.js-green)
+![Express](https://img.shields.io/badge/API-Express-black)
+![MongoDB](https://img.shields.io/badge/Database-MongoDB-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-blue)
 
-🎨 Tailwind CSS
+</div>
 
-🧭 React Router
+---
 
-Backend
+# 🚀 Tech Stack
 
-🟢 Node.js
+## Frontend
 
-🚂 Express
+* ⚛️ React
+* ⚡ Vite
+* 🎨 Tailwind CSS
+* 🧭 React Router
 
-🍃 MongoDB (Mongoose)
+## Backend
 
-☁️ Cloudinary (Image Uploads)
+* 🟢 Node.js
+* 🚂 Express
+* 🍃 MongoDB (Mongoose)
+* ☁️ Cloudinary – Image uploads
+* ✉️ Nodemailer – Email notifications
 
-✉️ Nodemailer (Email Notifications)
+---
 
-✨ Features
-👤 User Features
+# ✨ Features
 
-Browse available hotels
+## 👤 User Features
 
-View hotel and room details
+* Browse available hotels
+* View hotel and room details
+* Book hotel rooms
+* Secure authentication
+* Manage personal bookings
 
-Book hotel rooms
+## 🏨 Hotel Owner Features
 
-Secure authentication
+* Owner dashboard
+* Add and manage hotel rooms
+* Upload room images
+* Track bookings
 
-Manage personal bookings
+## 🔐 Security
 
-🏨 Hotel Owner Features
+* Authentication system
+* Protected routes
+* Environment variable configuration
 
-Owner dashboard
+---
 
-Add and manage hotel rooms
+# 📸 Screenshots
 
-Upload room images
+Create a `screenshots` folder and add images like this:
 
-Track bookings
-
-🔐 Security
-
-Authentication system
-
-Protected routes
-
-Environment variable configuration
-
-📸 Screenshots
-
-Add screenshots to make your repository visually appealing.
-
+```
 screenshots/
   home.png
   hotel-details.png
   booking-page.png
   dashboard.png
+```
 
 Example:
 
-Home Page
+```
+![Home Page](screenshots/home.png)
+![Hotel Details](screenshots/hotel-details.png)
+```
 
+---
 
+# 📁 Project Structure
 
-
-Hotel Details
-
-
-
-
-📁 Project Structure
+```
 Hotel-Booking-App
 │
 ├── client/          # React Frontend
@@ -98,19 +103,33 @@ Hotel-Booking-App
 │   └── config/
 │
 └── README.md
-⚙️ Getting Started
-1️⃣ Clone the repository
+```
+
+---
+
+# ⚙️ Getting Started
+
+## 1️⃣ Clone the Repository
+
+```bash
 git clone https://github.com/yourusername/hotel-booking-app.git
 cd Hotel-Booking-App
-🖥 Backend Setup
+```
+
+---
+
+# 🖥 Backend Setup
 
 Install dependencies:
 
+```bash
 cd server
 npm install
+```
 
-Create a .env file inside server/ and add:
+Create `.env` file inside **server/**:
 
+```
 PORT=5000
 
 MONGO_URI=your_mongodb_connection_string
@@ -123,84 +142,129 @@ CLOUDINARY_API_SECRET=your_api_secret
 
 EMAIL_USER=your_email
 EMAIL_PASS=your_email_password
+```
 
-Start the backend server:
+Start backend server:
 
+```bash
 npm run dev
-💻 Frontend Setup
+```
+
+---
+
+# 💻 Frontend Setup
 
 Open another terminal:
 
+```bash
 cd client
 npm install
 npm run dev
+```
 
-The frontend will start on:
+Frontend runs at:
 
+```
 http://localhost:5173
-📜 Available Scripts
-Client
-npm run dev       # Start development server
-npm run build     # Create production build
-npm run preview   # Preview production build
-Server
-npm run dev       # Start server using nodemon
-npm start         # Start server normally
-🌍 Deployment
+```
 
-Both client and server can be deployed on Vercel.
+---
 
-Each folder includes a vercel.json configuration file.
+# 📜 Available Scripts
 
-Deployment structure:
+## Client
 
-Frontend → Vercel
-Backend  → Vercel Serverless API
-📡 API Endpoints (Example)
+```
+npm run dev       Start development server
+npm run build     Build for production
+npm run preview   Preview production build
+```
+
+## Server
+
+```
+npm run dev       Start server with nodemon
+npm start         Start server
+```
+
+---
+
+# 📡 API Endpoints
+
+Example routes:
+
+```
 GET    /api/hotels
 GET    /api/hotels/:id
 POST   /api/bookings
 GET    /api/bookings/user
 POST   /api/auth/login
 POST   /api/auth/register
-🔮 Future Improvements
+```
 
-Potential enhancements:
+---
 
-💳 Stripe payment integration
+# 🌍 Deployment
 
-⭐ Hotel rating and review system
+Both **frontend and backend** can be deployed on **Vercel**.
 
-🔍 Search and filtering
+```
+Frontend → Vercel
+Backend  → Vercel Serverless Functions
+```
 
-📅 Booking calendar
+Each directory includes its own `vercel.json`.
 
-🔔 Email and push notifications
+---
 
-🛠 Admin dashboard
+# 🔮 Future Improvements
 
-🤝 Contributing
+Planned enhancements:
+
+* 💳 Stripe payment integration
+* ⭐ Hotel reviews and rating system
+* 🔍 Advanced search and filters
+* 📅 Booking calendar
+* 🔔 Email and push notifications
+* 🛠 Admin management panel
+
+---
+
+# 🤝 Contributing
 
 Contributions are welcome.
 
-Fork the repository
+1. Fork the repository
+2. Create a new branch
 
-Create a new branch
-
+```bash
 git checkout -b feature/new-feature
+```
 
-Commit your changes
+3. Commit your changes
 
+```bash
 git commit -m "Add new feature"
+```
 
-Push the branch
+4. Push your branch
 
+```bash
 git push origin feature/new-feature
+```
 
-Open a Pull Request
+5. Open a Pull Request
 
-📄 License
+---
 
-This project is licensed under the MIT License.
+# 📄 License
 
-⭐ If you like this project, consider giving it a star on GitHub.
+This project is licensed under the **MIT License**.
+
+---
+
+<div align="center">
+
+⭐ If you like this project, consider **starring the repository**.
+
+</div>
